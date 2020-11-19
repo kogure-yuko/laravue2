@@ -30,14 +30,11 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>タスクが出る</td>
-                            <td><button class="btn btn-secondary">完了</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>タスクが出る</td>
-                            <td><button class="btn btn-secondary">完了</button></td>
+                            <tr v-for="todo in todos" v-bind:key="todo.id">
+                                <td>@{{todo.id}}</td>
+                                <td>@{{todo.title}}</td>
+                                <td><button class="btn btn-secondary">完了</button></td>
+                            </tr>
                         </tr>
                     </tbody>
                 </table>

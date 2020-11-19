@@ -37272,7 +37272,29 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    Axios = _require["default"];
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    todos: []
+  },
+  methods: {
+    fetchTodos: function fetchTodos() {
+      var _this = this;
+
+      Axios.get('/api/get').then(function (res) {
+        _this.todos = res.data;
+      });
+    }
+  },
+  created: function created() {
+    this.fetchTodos();
+  }
+});
 
 /***/ }),
 
